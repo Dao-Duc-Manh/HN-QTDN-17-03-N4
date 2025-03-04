@@ -12,14 +12,13 @@
 
 ## 1.1. Clone project.
 ```
-git clone https://gitlab.com/anhlta/odoo-fitdnu.git
+https://github.com/ngocanhit201/TTDN-15-04-N2.git
 ```
 ```
-cd odoo-fitdnu
+cd TTDN-15-04-N2
 ```
 
 ```
-git checkout cntt15_04
 ```
 
 
