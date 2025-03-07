@@ -16,6 +16,7 @@ class VanBanDi(models.Model):
     id_nguoi_phat_hanh = fields.Many2one('nhan_vien', string='Người phát hành')
     id_do_mat = fields.Many2one('do_mat', string='Độ mật')
     id_nam = fields.Many2one('nam', string='Năm')
+    
     @api.depends('ngay_di')
     def _compute_so_hieu(self):
         for record in self:

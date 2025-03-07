@@ -19,7 +19,7 @@
                             <field name="chu_tri_giai_quyet" />
                             <field name="van_ban_den_ids" />
                             <field name="ngay_hoan_thanh" />
-                                                        <field name="tinh_trang" />
+                            <field name="tinh_trang" />
 
 
                         </group>
@@ -44,7 +44,7 @@
                     <field name="chu_tri_giai_quyet" />
                     <field name="van_ban_den_ids" />
                     <field name="ngay_hoan_thanh" />
-                                                        <field name="tinh_trang" />
+                    <field name="tinh_trang" />
 
                 </tree>
             </field>
