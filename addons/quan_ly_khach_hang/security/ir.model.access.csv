@@ -3,5 +3,6 @@ access_khach_hang,khach_hang.khach_hang,model_khach_hang,base.group_user,1,1,1,1
 access_loai_khach_hang,loai_khach_hang.loai_khach_hang,model_loai_khach_hang,base.group_user,1,1,1,1
 access_hop_dong,hop_dong.hop_dong,model_hop_dong,base.group_user,1,1,1,1
 access_trang_thai_hop_dong,trang_thai_hop_dong.trang_thai_hop_dong,model_trang_thai_hop_dong,base.group_user,1,1,1,1
-access_khach_hang_dashboard,khach_hang.dashboard,model_khach_hang_dashboard,base.group_user,1,0,0,0
+access_khach_hang_dashboard,khach_hang.dashboard,model_khach_hang_dashboard,base.group_system,1,1,1,1
+
 

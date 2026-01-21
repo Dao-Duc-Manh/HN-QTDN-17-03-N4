@@ -98,12 +98,13 @@
             </field>
         </record>
 
-        <record id="action_van_ban_dashboard_main" model="ir.actions.act_window">
+        <record id="action_van_ban_dashboard_main_server" model="ir.actions.server">
             <field name="name">Dashboard</field>
-            <field name="res_model">van_ban.dashboard</field>
-            <field name="view_mode">form</field>
-            <field name="target">current</field>
-            <field name="view_id" ref="view_van_ban_dashboard_form"/>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env['van_ban.dashboard'].action_open_dashboard()
+            </field>
         </record>
     </data>
 </odoo>

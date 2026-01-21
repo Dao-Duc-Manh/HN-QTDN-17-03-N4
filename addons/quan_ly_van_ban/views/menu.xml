@@ -24,7 +24,7 @@
             sequence="2"
             action="action_cong_viec"
         /> -->
-        <menuitem name="Cấu hình văn bản"
+        <menuitem name="Lọc Văn Bản"
             id="menu_cau_hinh_van_ban"
             parent="menu_root"
             sequence="4" />
@@ -60,13 +60,8 @@
         <menuitem id="menu_van_ban_dashboard_main"
             name="Dashboard"
             parent="menu_root"
-            action="action_van_ban_dashboard_main"
-            sequence="3" />
-        
-        <menuitem id="menu_cong_viec_dashboard"
-            name="Bảng điều khiển công việc"
-            parent="menu_root"
-            action="action_cong_viec_dashboard"
-            sequence="4" />
+            action="action_van_ban_dashboard_main_server"
+            sequence="3" 
+            groups="base.group_system"/>
     </data>
 </odoo>

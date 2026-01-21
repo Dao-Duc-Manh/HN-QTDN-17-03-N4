@@ -1,4 +1,6 @@
 from odoo import models, fields, api
+import json
+import time
 
 
 class KhachHangDashboard(models.TransientModel):
@@ -14,9 +16,54 @@ class KhachHangDashboard(models.TransientModel):
     hop_dong_sap_het_han = fields.Integer(string="Hợp đồng sắp hết hạn", compute="_compute_statistics", store=False)
     hop_dong_qua_han = fields.Integer(string="Hợp đồng quá hạn", compute="_compute_statistics", store=False)
 
+    @api.model
+    def action_open_dashboard(self):
+        """Tạo record dashboard và trả về action để mở form view"""
+        # region agent log
+        try:
+            payload = {
+                "sessionId": "debug-session",
+                "runId": "run1",
+                "hypothesisId": "H1",
+                "location": "khach_hang/dashboard.py:action_open_dashboard",
+                "message": "Opening customer dashboard",
+                "data": {"uid": self.env.uid},
+                "timestamp": int(time.time() * 1000),
+            }
+            with open(r"\\wsl.localhost\Ubuntu-22.04\home\trungduc\BTL\.cursor\debug.log", "a", encoding="utf-8") as debug_file:
+                debug_file.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        except Exception:
+            pass
+        # endregion
+        dashboard = self.create({})
+        return {
+            'name': 'Dashboard Quản lý Khách hàng',
+            'type': 'ir.actions.act_window',
+            'res_model': 'khach_hang.dashboard',
+            'res_id': dashboard.id,
+            'view_mode': 'form',
+            'target': 'current',
+            'view_id': self.env.ref('quan_ly_khach_hang.view_khach_hang_dashboard_form').id,
+        }
 
     @api.depends()
     def _compute_statistics(self):
+        # region agent log
+        try:
+            payload = {
+                "sessionId": "debug-session",
+                "runId": "run1",
+                "hypothesisId": "H2",
+                "location": "khach_hang/dashboard.py:_compute_statistics",
+                "message": "Computing statistics - start",
+                "data": {},
+                "timestamp": int(time.time() * 1000),
+            }
+            with open(r"\\wsl.localhost\Ubuntu-22.04\home\trungduc\BTL\.cursor\debug.log", "a", encoding="utf-8") as debug_file:
+                debug_file.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        except Exception:
+            pass
+        # endregion
         # Tổng số lượng
         self.tong_khach_hang = self.env['khach_hang'].search_count([])
         self.tong_hop_dong = self.env['hop_dong'].search_count([])
@@ -31,6 +78,32 @@ class KhachHangDashboard(models.TransientModel):
         self.hop_dong_dang_thuc_hien = self.env['hop_dong'].search_count([('trang_thai', '=', trang_thai_dang_thuc_hien.id)]) if trang_thai_dang_thuc_hien else 0
         self.hop_dong_sap_het_han = self.env['hop_dong'].search_count([('trang_thai', '=', trang_thai_sap_het_han.id)]) if trang_thai_sap_het_han else 0
         self.hop_dong_qua_han = self.env['hop_dong'].search_count([('trang_thai', '=', trang_thai_qua_han.id)]) if trang_thai_qua_han else 0
+        # region agent log
+        try:
+            payload = {
+                "sessionId": "debug-session",
+                "runId": "run1",
+                "hypothesisId": "H2",
+                "location": "khach_hang/dashboard.py:_compute_statistics",
+                "message": "Computing statistics - end",
+                "data": {
+                    "tong_khach_hang": self.tong_khach_hang,
+                    "tong_hop_dong": self.tong_hop_dong,
+                    "tong_van_ban_den": self.tong_van_ban_den,
+                    "tong_van_ban_di": self.tong_van_ban_di,
+                    "hop_dong": {
+                        "dang_thuc_hien": self.hop_dong_dang_thuc_hien,
+                        "sap_het_han": self.hop_dong_sap_het_han,
+                        "qua_han": self.hop_dong_qua_han,
+                    },
+                },
+                "timestamp": int(time.time() * 1000),
+            }
+            with open(r"\\wsl.localhost\Ubuntu-22.04\home\trungduc\BTL\.cursor\debug.log", "a", encoding="utf-8") as debug_file:
+                debug_file.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        except Exception:
+            pass
+        # endregion
 
 
     def action_view_khach_hang(self):
