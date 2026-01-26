@@ -49,8 +49,7 @@
             name="Dashboard"
             parent="menu_root_khach_hang"
             action="action_khach_hang_dashboard_main_server"
-            sequence="4" 
-            groups="base.group_system"/>
+            sequence="4"/>
     </data>
 </odoo>
 

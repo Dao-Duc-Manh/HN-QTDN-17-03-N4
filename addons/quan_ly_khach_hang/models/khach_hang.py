@@ -6,7 +6,6 @@ class KhachHang(models.Model):
     _description = 'Bảng chứa thông tin khách hàng'
     _rec_name = "ten_khach_hang"
     
-    id = fields.Integer("ID khách hàng", required=True)
     ma_khach_hang = fields.Char("Mã khách hàng", store=True, readonly=True)
     ten_khach_hang = fields.Char("Tên khách hàng", required=True)
     dia_chi = fields.Text("Địa chỉ", required=True)
@@ -19,7 +18,7 @@ class KhachHang(models.Model):
     hop_dong_ids = fields.One2many('hop_dong', 'id_khach_hang', string='Hợp đồng')
     van_ban_di_ids = fields.One2many('van_ban_di', 'id_khach_hang', string='Văn bản đi liên quan')
     van_ban_den_ids = fields.One2many('van_ban_den', 'id_khach_hang', string='Văn bản đến liên quan')
-    cong_viec_ids = fields.One2many('cong_viec', 'khach_hang_id', string='Công việc liên quan')
+    cong_viec_ids = fields.One2many('cong.viec', 'khach_hang_id', string='Công việc liên quan')
     van_ban_di_count = fields.Integer(string="Số VB đi", compute="_compute_van_ban_counts")
     van_ban_den_count = fields.Integer(string="Số VB đến", compute="_compute_van_ban_counts")
     

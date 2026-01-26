@@ -52,6 +52,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">✓ Công việc đã hoàn thành</h5>
                                             <p>Số lượng: <field name="cong_viec_hoan_thanh"/></p>
+                                            <button name="action_view_cong_viec_hoan_thanh" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -62,6 +63,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">⚙ Công việc đang xử lý</h5>
                                             <p>Số lượng: <field name="cong_viec_dang_xu_ly"/></p>
+                                            <button name="action_view_cong_viec_dang_xu_ly" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -72,6 +74,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">⏰ Công việc hoàn thành muộn</h5>
                                             <p>Số lượng: <field name="cong_viec_hoan_thanh_muon"/></p>
+                                            <button name="action_view_cong_viec_hoan_thanh_muon" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -82,6 +85,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">📄 Công việc đã nhận</h5>
                                             <p>Số lượng: <field name="cong_viec_da_nhan"/></p>
+                                            <button name="action_view_cong_viec_da_nhan" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>

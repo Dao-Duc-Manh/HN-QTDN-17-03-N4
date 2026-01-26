@@ -70,31 +70,35 @@
                                         <field name="ngay_hoan_thanh" />
                                         <field name="tinh_trang" />
                                         <field name="trang_thai" />
-                                        <field name="van_ban_den_ids" />
+                                        <field name="khach_hang_id" />
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Văn bản đi" name="van_ban_di">
-                                <field name="van_ban_di_ids" nolabel="1">
-                                    <tree>
-                                        <field name="so_hieu" />
-                                        <field name="tieu_de" />
-                                        <field name="ngay_di" />
-                                        <field name="id_loai_van_ban" />
-                                        <field name="id_do_mat" />
-                                    </tree>
-                                </field>
-                            </page>
-                            <page string="Văn bản đến" name="van_ban_den">
-                                <field name="van_ban_den_ids" nolabel="1">
-                                    <tree>
-                                        <field name="so_hieu" />
-                                        <field name="tieu_de" />
-                                        <field name="ngay_den" />
-                                        <field name="id_loai_van_ban" />
-                                        <field name="id_do_mat" />
-                                    </tree>
-                                </field>
+                            <page string="Văn bản" name="van_ban">
+                                <group>
+                                    <group string="Văn bản đi">
+                                        <field name="van_ban_di_ids" nolabel="1">
+                                            <tree>
+                                                <field name="so_hieu" />
+                                                <field name="tieu_de" />
+                                                <field name="ngay_di" />
+                                                <field name="id_loai_van_ban" />
+                                                <field name="id_do_mat" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <group string="Văn bản đến">
+                                        <field name="van_ban_den_ids" nolabel="1">
+                                            <tree>
+                                                <field name="so_hieu" />
+                                                <field name="tieu_de" />
+                                                <field name="ngay_den" />
+                                                <field name="id_loai_van_ban" />
+                                                <field name="id_do_mat" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
                             </page>
                         </notebook>
                     </sheet>

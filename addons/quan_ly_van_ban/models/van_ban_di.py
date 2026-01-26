@@ -7,7 +7,6 @@ class VanBanDi(models.Model):
     _name = 'van_ban_di'
     _description = 'Bảng chứa thông tin van_ban_di'
     _rec_name = "tieu_de"
-    id = fields.Integer("ID văn bản đi", required=True)
     ngay_di = fields.Date("Ngày đi", required=True)
     so_hieu = fields.Char("Số hiệu",  store=True, readonly=True)
     trich_yeu = fields.Text("Trích yếu", required=True)

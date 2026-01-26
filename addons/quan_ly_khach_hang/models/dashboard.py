@@ -36,6 +36,8 @@ class KhachHangDashboard(models.TransientModel):
             pass
         # endregion
         dashboard = self.create({})
+        # Tính toán statistics ngay sau khi tạo
+        dashboard._compute_statistics()
         return {
             'name': 'Dashboard Quản lý Khách hàng',
             'type': 'ir.actions.act_window',
@@ -138,5 +140,38 @@ class KhachHangDashboard(models.TransientModel):
             'res_model': 'van_ban_di',
             'view_mode': 'tree,form',
             'domain': [('id_khach_hang', '!=', False)],
+        }
+
+    def action_view_hop_dong_dang_thuc_hien(self):
+        trang_thai_dang_thuc_hien = self.env['trang_thai_hop_dong'].search([('ten_trang_thai', '=', 'Đang thực hiện')], limit=1)
+        domain = [('trang_thai', '=', trang_thai_dang_thuc_hien.id)] if trang_thai_dang_thuc_hien else []
+        return {
+            'name': 'Hợp đồng đang thực hiện',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hop_dong',
+            'view_mode': 'tree,form',
+            'domain': domain,
+        }
+
+    def action_view_hop_dong_sap_het_han(self):
+        trang_thai_sap_het_han = self.env['trang_thai_hop_dong'].search([('ten_trang_thai', '=', 'Sắp hết hạn')], limit=1)
+        domain = [('trang_thai', '=', trang_thai_sap_het_han.id)] if trang_thai_sap_het_han else []
+        return {
+            'name': 'Hợp đồng sắp hết hạn',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hop_dong',
+            'view_mode': 'tree,form',
+            'domain': domain,
+        }
+
+    def action_view_hop_dong_qua_han(self):
+        trang_thai_qua_han = self.env['trang_thai_hop_dong'].search([('ten_trang_thai', '=', 'Quá hạn')], limit=1)
+        domain = [('trang_thai', '=', trang_thai_qua_han.id)] if trang_thai_qua_han else []
+        return {
+            'name': 'Hợp đồng quá hạn',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hop_dong',
+            'view_mode': 'tree,form',
+            'domain': domain,
         }
 

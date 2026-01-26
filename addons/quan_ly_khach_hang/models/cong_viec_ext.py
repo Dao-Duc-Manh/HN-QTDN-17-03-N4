@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class CongViecCustomer(models.Model):
-    _inherit = 'cong_viec'
+    _inherit = 'cong.viec'
 
     khach_hang_id = fields.Many2one(
         'khach_hang',
@@ -11,9 +11,9 @@ class CongViecCustomer(models.Model):
         store=True,
     )
 
-    @api.depends('van_ban_den_ids', 'van_ban_den_ids.id_khach_hang')
+    @api.depends('van_ban_den_id', 'van_ban_den_id.id_khach_hang')
     def _compute_khach_hang_id(self):
         for record in self:
-            record.khach_hang_id = record.van_ban_den_ids.id_khach_hang if record.van_ban_den_ids else False
+            record.khach_hang_id = record.van_ban_den_id.id_khach_hang if record.van_ban_den_id else False
 
 

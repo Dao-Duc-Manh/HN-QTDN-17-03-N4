@@ -34,26 +34,22 @@
 
         <!-- Loại khách hàng -->
         <record id="loai_kh_vip" model="loai_khach_hang">
-            <field name="id">1</field>
             <field name="loai_khach_hang">Khách hàng VIP</field>
             <field name="mo_ta">Khách hàng quan trọng, giá trị cao</field>
         </record>
 
         <record id="loai_kh_thuong" model="loai_khach_hang">
-            <field name="id">2</field>
             <field name="loai_khach_hang">Khách hàng thường</field>
             <field name="mo_ta">Khách hàng thông thường</field>
         </record>
 
         <record id="loai_kh_moi" model="loai_khach_hang">
-            <field name="id">3</field>
             <field name="loai_khach_hang">Khách hàng mới</field>
             <field name="mo_ta">Khách hàng mới hợp tác</field>
         </record>
 
         <!-- Khách hàng -->
         <record id="khach_hang_1" model="khach_hang">
-            <field name="id">1</field>
             <field name="ten_khach_hang">Công ty TNHH ABC</field>
             <field name="dia_chi">123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</field>
             <field name="so_dien_thoai">0281234567</field>
@@ -64,7 +60,6 @@
         </record>
 
         <record id="khach_hang_2" model="khach_hang">
-            <field name="id">2</field>
             <field name="ten_khach_hang">Công ty Cổ phần XYZ</field>
             <field name="dia_chi">456 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</field>
             <field name="so_dien_thoai">0282345678</field>
@@ -75,7 +70,6 @@
         </record>
 
         <record id="khach_hang_3" model="khach_hang">
-            <field name="id">3</field>
             <field name="ten_khach_hang">Doanh nghiệp Tư nhân DEF</field>
             <field name="dia_chi">789 Đường Trần Hưng Đạo, Quận 5, TP. Hồ Chí Minh</field>
             <field name="so_dien_thoai">0283456789</field>
@@ -86,7 +80,6 @@
         </record>
 
         <record id="khach_hang_4" model="khach_hang">
-            <field name="id">4</field>
             <field name="ten_khach_hang">Công ty TNHH GHI</field>
             <field name="dia_chi">321 Đường Võ Văn Tần, Quận 3, TP. Hồ Chí Minh</field>
             <field name="so_dien_thoai">0284567890</field>
@@ -143,7 +136,6 @@
 
         <!-- Liên kết văn bản với khách hàng -->
         <record id="van_ban_di_kh1" model="van_ban_di">
-            <field name="id">10</field>
             <field name="tieu_de">Công văn gửi Công ty ABC về hợp đồng</field>
             <field name="trich_yeu">Thông báo về việc gia hạn hợp đồng dịch vụ IT</field>
             <field name="ngay_di">2024-11-15</field>
@@ -158,7 +150,6 @@
         </record>
 
         <record id="van_ban_den_kh2" model="van_ban_den">
-            <field name="id">10</field>
             <field name="tieu_de">Công văn từ Công ty XYZ về hợp đồng</field>
             <field name="trich_yeu">Yêu cầu điều chỉnh một số điều khoản hợp đồng</field>
             <field name="co_quan_ban_hanh">Công ty Cổ phần XYZ</field>
@@ -173,4 +164,3 @@
         </record>
     </data>
 </odoo>
-

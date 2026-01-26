@@ -33,7 +33,7 @@
         <menuitem name="Lọc Văn Bản"
             id="menu_cau_hinh_van_ban"
             parent="menu_root"
-            sequence="5" />
+            sequence="6" />
         <menuitem name="Trạng thái"
             id="menu_trang_thai"
             parent="menu_cau_hinh_van_ban"
@@ -67,7 +67,6 @@
             name="Dashboard"
             parent="menu_root"
             action="action_van_ban_dashboard_main_server"
-            sequence="6" 
-            groups="base.group_system"/>
+            sequence="5"/>
     </data>
 </odoo>

@@ -14,7 +14,7 @@
         - Dashboard quản lý hợp đồng
     """,
 
-    'author': "Nhom 2 - CNTT 1504",
+    'author': "Nhom 8 - CNTT 16-0606",
     'website': "http://www.yourcompany.com",
 
     'category': 'Sales',
@@ -32,13 +32,10 @@
         'views/khach_hang.xml',
         'views/hop_dong.xml',
         'views/van_ban_lien_ket.xml',
+        # 'views/cong_viec_ext.xml',
         'views/dashboard.xml',
         'views/dashboard_main.xml',
         'views/menu.xml',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
     ],
 }
 

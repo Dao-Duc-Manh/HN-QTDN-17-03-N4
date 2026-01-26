@@ -63,6 +63,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">✓ Hợp đồng đang thực hiện</h5>
                                             <p>Số lượng: <field name="hop_dong_dang_thuc_hien"/></p>
+                                            <button name="action_view_hop_dong_dang_thuc_hien" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -73,6 +74,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">⚠ Hợp đồng sắp hết hạn</h5>
                                             <p>Số lượng: <field name="hop_dong_sap_het_han"/></p>
+                                            <button name="action_view_hop_dong_sap_het_han" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -83,6 +85,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">⏰ Hợp đồng quá hạn</h5>
                                             <p>Số lượng: <field name="hop_dong_qua_han"/></p>
+                                            <button name="action_view_hop_dong_qua_han" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
                                         </div>
                                     </div>
                                 </div>

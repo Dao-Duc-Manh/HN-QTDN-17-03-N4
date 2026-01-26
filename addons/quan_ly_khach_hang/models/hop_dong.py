@@ -35,6 +35,24 @@ class HopDong(models.Model):
                                      default=lambda self: self.env.user)
     tep_dinh_kem = fields.Binary("Tệp đính kèm")
     ten_tep = fields.Char("Tên tệp")
+    
+    # Văn bản liên quan - lấy từ khách hàng
+    van_ban_lien_ket = fields.Char(
+        string="Văn bản liên quan",
+        compute="_compute_van_ban_lien_ket",
+        store=False
+    )
+    
+    @api.depends('id_khach_hang')
+    def _compute_van_ban_lien_ket(self):
+        for record in self:
+            if record.id_khach_hang:
+                van_ban_di = self.env['van_ban_di'].search([('id_khach_hang', '=', record.id_khach_hang.id)])
+                van_ban_den = self.env['van_ban_den'].search([('id_khach_hang', '=', record.id_khach_hang.id)])
+                total = len(van_ban_di) + len(van_ban_den)
+                record.van_ban_lien_ket = f"VB đi: {len(van_ban_di)}, VB đến: {len(van_ban_den)}" if total > 0 else "Không có"
+            else:
+                record.van_ban_lien_ket = ""
 
     @api.model
     def create(self, vals):

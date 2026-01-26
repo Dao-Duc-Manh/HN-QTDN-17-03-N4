@@ -69,6 +69,7 @@
                     <field name="gia_tri_hop_dong" />
                     <field name="trang_thai" />
                     <field name="tinh_trang" />
+                    <field name="van_ban_lien_ket" optional="show" />
                 </tree>
             </field>
         </record>
