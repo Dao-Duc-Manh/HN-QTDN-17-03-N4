@@ -90,31 +90,31 @@ Module mở rộng thêm chức năng quản lý khách hàng và hợp đồng:
 ---
 🖼️ Hình Ảnh Minh Họa
 
-<p align="center"> <img src="images/dashboard_van_ban.png" /> </p>
+<p align="center"> <img src="images/dashboard_van_ban.png"/> </p>
 
 Hình 1. Dashboard thống kê văn bản đến/đi và tình trạng công việc
 
-<p align="center"> <img src="images/van_ban_den.png" /> </p>
+<p align="center"> <img src="images/van_ban_den.png"/> </p>
 
 Hình 2. Giao diện quản lý văn bản đến
 
-<p align="center"> <img src="images/van_ban_di.png" /> </p>
+<p align="center"> <img src="images/van_ban_di.png"/> </p>
 
 Hình 3. Giao diện quản lý văn bản đi 
 
-<p align="center"> <img src="images/cong_viec.png" /> </p>
+<p align="center"> <img src="images/cong_viec.png"/> </p>
 
 Hình 4. Giao diện quản lý và theo dõi tiến độ công việc
 
-<p align="center"> <img src="images/khach_hang.png" /> </p>
+<p align="center"> <img src="images/khach_hang.png"/> </p>
 
 Hình 5. Thông tin khách hàng
 
-<p align="center"> <img src="images/hop_dong.png"  </p>
+<p align="center"> <img src="images/hop_dong.png" /> </p>
 
 Hình 6. Giao diện quản lý hợp đồng và trạng thái hợp đồng
 
-<p align="center"> <img src="images/dashboard_khach_hang.png" /> </p>
+<p align="center"> <img src="images/dashboard_khach_hang.png"/> </p>
 
 Hình 7. Dashboard thống kê khách hàng và hợp đồng
 
