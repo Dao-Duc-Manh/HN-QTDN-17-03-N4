@@ -122,7 +122,7 @@
 
     <!-- Dashboard Action -->
     <record id="action_hop_dong_dashboard" model="ir.actions.act_window">
-        <field name="name">Bảng điều khiển Hợp đồng</field>
+        <field name="name">Danh sách Hợp đồng</field>
         <field name="res_model">hop_dong</field>
         <field name="view_mode">tree,kanban,graph,pivot,calendar,form</field>
         <field name="search_view_id" ref="view_hop_dong_dashboard_search"/>

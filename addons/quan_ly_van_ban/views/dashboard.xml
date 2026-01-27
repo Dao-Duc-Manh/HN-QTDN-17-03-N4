@@ -106,7 +106,7 @@
 
     <!-- Dashboard Action -->
     <record id="action_cong_viec_dashboard" model="ir.actions.act_window">
-        <field name="name">Bảng điều khiển công việc</field>
+        <field name="name">Danh sách công việc</field>
         <field name="res_model">cong.viec</field>
         <field name="view_mode">tree,kanban,graph,pivot,calendar,form</field>
         <field name="search_view_id" ref="view_cong_viec_search"/>
