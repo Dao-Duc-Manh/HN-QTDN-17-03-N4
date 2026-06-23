@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_van_ban_di,van_ban_di.van_ban_di,model_van_ban_di,base.group_user,1,1,1,1
+access_trang_thai,trang_thai.trang_thai,model_trang_thai,base.group_user,1,1,1,1
+access_loai_van_ban,loai_van_ban.loai_van_ban,model_loai_van_ban,base.group_user,1,1,1,1
+access_do_mat,do_mat.do_mat,model_do_mat,base.group_user,1,1,1,1
+access_van_ban_den,van_ban_den.van_ban_den,model_van_ban_den,base.group_user,1,1,1,1
+access_nam,nam.nam,model_nam,base.group_user,1,1,1,1
+access_cong_viec,cong_viec.cong_viec,model_cong_viec,base.group_user,1,1,1,1
+access_ho_so,ho_so.ho_so,model_ho_so,base.group_user,1,1,1,1
+access_van_ban_dashboard,van_ban.dashboard,model_van_ban_dashboard,base.group_system,1,1,1,1
+
+
+

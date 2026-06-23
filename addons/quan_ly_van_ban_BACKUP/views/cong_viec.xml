@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cong_viec_form" model="ir.ui.view">
+            <field name="name">cong_viec</field>
+            <field name="model">cong.viec</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h2 class="text-primary" style="font-size: 25px; font-weight: bold;">
+                                Quản lý công việc</h2>
+                        </div>
+                        <!-- Thông tin chung -->
+                        <div class="card p-3 shadow-sm mb-3">
+                            <group col="4">
+                                <field name="id" />
+                                <field name="ten_cong_viec" />
+                                <field name="yeu_cau" />
+                                                            <field name="van_ban_den_id" />
+
+                            </group>
+                        </div>
+                        <!-- chi tiet 1 -->
+                        <div class="card p-3 shadow-sm mb-3">
+                            <group col="4">
+                                <field name="ngay_tao" />
+                                <field name="han_xu_ly" />
+                                <field name="chi_dao" />
+                                <field name="chu_tri_giai_quyet" />
+
+                            </group>
+                        </div>
+                        <!-- chi tiet 2 -->
+                        <!-- <div class="card p-3 shadow-sm mb-3">
+                            <group col="4">
+                                <field name="ngay_tao" />
+                                <field name="han_xu_ly" />
+                                <field name="chi_dao" />
+                                <field name="chu_tri_giai_quyet" />
+
+                            </group>
+                        </div> -->
+                            <div class="card p-3 shadow-sm mb-3">
+                            <group col="4">
+                           <field name="trang_thai" />
+                            <field name="ngay_hoan_thanh" />
+                            <field name="tinh_trang" />
+
+                            </group>
+                        </div>
+                        <!-- <group col="4" string="Thông tin chung">
+                            
+
+                        </group> -->
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cong_viec_tree" model="ir.ui.view">
+            <field name="name">cong_viec</field>
+            <field name="model">cong.viec</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id" />
+                    <field name="ten_cong_viec" />
+                    <!-- <field name="yeu_cau" /> -->
+                    <field name="ngay_tao" />
+                    <field name="han_xu_ly" />
+                    <field name="chi_dao" />
+                    <!-- <field name="chu_tri_giai_quyet" /> -->
+                    <field name="van_ban_den_id" />
+                    <!-- <field name="ngay_hoan_thanh" /> -->
+                    <!-- <field name="tinh_trang" /> -->
+                    <field name="trang_thai" />
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cong_viec_search">
+            <field name="model">cong.viec</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="id" />
+
+                    <field name="ten_cong_viec" />
+                </search>
+            </field>
+        </record>
+        <record id="action_cong_viec" model="ir.actions.act_window">
+            <field name="name">Công việc</field>
+            <field name="res_model">cong.viec</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="cong_viec_search" />
+        </record>
+    </data>
+</odoo>

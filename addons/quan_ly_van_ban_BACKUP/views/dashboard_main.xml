@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_van_ban_dashboard_form" model="ir.ui.view">
+            <field name="name">van_ban.dashboard.form</field>
+            <field name="model">van_ban.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Dashboard Quản lý Văn bản" create="false" delete="false">
+                    <sheet>
+                        <div class="oe_dashboard">
+                            <!-- Row 1: Tổng số lượng -->
+                            <div class="row">
+                                <!-- Card: Tổng văn bản đến -->
+                                <div class="col-md-4">
+                                    <div class="card" style="background-color: #ffcccc; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tổng văn bản đến</h5>
+                                            <h2><field name="tong_van_ban_den"/></h2>
+                                            <button name="action_view_van_ban_den" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card: Tổng văn bản đi -->
+                                <div class="col-md-4">
+                                    <div class="card" style="background-color: #cce5ff; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tổng văn bản đi</h5>
+                                            <h2><field name="tong_van_ban_di"/></h2>
+                                            <button name="action_view_van_ban_di" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card: Tổng nhân sự -->
+                                <div class="col-md-4">
+                                    <div class="card" style="background-color: #ccffcc; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tổng nhân sự</h5>
+                                            <h2><field name="tong_nhan_su"/></h2>
+                                            <button name="action_view_nhan_su" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Công việc -->
+                            <div class="row">
+                                <!-- Card: Công việc đã hoàn thành -->
+                                <div class="col-md-3">
+                                    <div class="card" style="background-color: #ccffcc; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">✓ Công việc đã hoàn thành</h5>
+                                            <p>Số lượng: <field name="cong_viec_hoan_thanh"/></p>
+                                            <button name="action_view_cong_viec_hoan_thanh" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card: Công việc đang xử lý -->
+                                <div class="col-md-3">
+                                    <div class="card" style="background-color: #fff4cc; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">⚙ Công việc đang xử lý</h5>
+                                            <p>Số lượng: <field name="cong_viec_dang_xu_ly"/></p>
+                                            <button name="action_view_cong_viec_dang_xu_ly" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card: Công việc hoàn thành muộn -->
+                                <div class="col-md-3">
+                                    <div class="card" style="background-color: #ffcccc; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">⏰ Công việc hoàn thành muộn</h5>
+                                            <p>Số lượng: <field name="cong_viec_hoan_thanh_muon"/></p>
+                                            <button name="action_view_cong_viec_hoan_thanh_muon" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card: Công việc đã nhận -->
+                                <div class="col-md-3">
+                                    <div class="card" style="background-color: #cce5ff; margin-bottom: 20px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">📄 Công việc đã nhận</h5>
+                                            <p>Số lượng: <field name="cong_viec_da_nhan"/></p>
+                                            <button name="action_view_cong_viec_da_nhan" type="object" string="Xem thêm" class="btn btn-primary mt-2"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button name="action_view_cong_viec_chi_tiet" type="object" string="Xem chi tiết" class="btn btn-success"/>
+                                </div>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_van_ban_dashboard_main_server" model="ir.actions.server">
+            <field name="name">Dashboard</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env['van_ban.dashboard'].action_open_dashboard()
+            </field>
+        </record>
+    </data>
+</odoo>
+

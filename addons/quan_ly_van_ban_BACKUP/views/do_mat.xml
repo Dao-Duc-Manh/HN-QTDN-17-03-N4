@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_do_mat_form" model="ir.ui.view">
+            <field name="name">do_mat</field>
+            <field name="model">do_mat</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px"></div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="id" />
+
+                            <field name="do_mat" />
+                            <field name="mo_ta" />
+                            <!-- <field name="van_ban_den_ids" /> 
+                           <field name="van_ban_di_ids" /> -->
+
+                        </group>
+                        <notebook>
+                            <page string="Danh sách lịch sử công tác đến">
+                                <field name="van_ban_den_ids" />
+                            </page>
+                            <page string="Danh sách lịch sử công tác đi">
+                                <field name="van_ban_di_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_do_mat_tree" model="ir.ui.view">
+            <field name="name">do_mat</field>
+            <field name="model">do_mat</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id" />
+                    <field name="do_mat" />
+                    <field name="mo_ta" />
+                    <field name="van_ban_di_ids" />
+                    <field name="van_ban_den_ids" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="do_mat_search">
+            <field name="model">do_mat</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="id" />
+
+                    <field name="do_mat" />
+                    <field name="mo_ta" />
+                </search>
+            </field>
+        </record>
+        <record id="action_do_mat" model="ir.actions.act_window">
+            <field name="name">Độ mật</field>
+            <field name="res_model">do_mat</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="do_mat_search" />
+        </record>
+    </data>
+</odoo>
+        
+    

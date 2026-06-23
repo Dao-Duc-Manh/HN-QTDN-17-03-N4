@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_trang_thai_form" model="ir.ui.view">
+            <field name="name">trang_thai</field>
+            <field name="model">trang_thai</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Trạng thái</div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="id" />
+
+                            <field name="ten_trang_thai" />
+                            <field name="mo_ta" />
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_trang_thai_tree" model="ir.ui.view">
+            <field name="name">trang_thai</field>
+            <field name="model">trang_thai</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id" />
+
+                    <field name="ten_trang_thai" />
+                    <field name="mo_ta" />
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="trang_thai_search">
+            <field name="model">trang_thai</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ten_trang_thai" />
+
+                </search>
+            </field>
+        </record>
+        <record id="action_trang_thai" model="ir.actions.act_window">
+            <field name="name">Trạng thái</field>
+            <field name="res_model">trang_thai</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="trang_thai_search" />
+        </record>
+    </data>
+</odoo>
+        
+    

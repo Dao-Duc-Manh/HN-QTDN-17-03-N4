@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Trạng thái -->
+        <record id="trang_thai_hoan_thanh" model="trang_thai">
+            <field name="ten_trang_thai">Hoàn thành</field>
+            <field name="mo_ta">Công việc đã hoàn thành</field>
+        </record>
+
+        <record id="trang_thai_hoan_thanh_qua_han" model="trang_thai">
+            <field name="ten_trang_thai">Hoàn thành quá hạn</field>
+            <field name="mo_ta">Công việc hoàn thành nhưng quá hạn</field>
+        </record>
+
+        <record id="trang_thai_da_nhan" model="trang_thai">
+            <field name="ten_trang_thai">Đã nhận</field>
+            <field name="mo_ta">Đã nhận công việc</field>
+        </record>
+
+        <record id="trang_thai_dang_xu_ly" model="trang_thai">
+            <field name="ten_trang_thai">Đang xử lý</field>
+            <field name="mo_ta">Đang trong quá trình xử lý</field>
+        </record>
+
+        <record id="trang_thai_huy" model="trang_thai">
+            <field name="ten_trang_thai">Huỷ</field>
+            <field name="mo_ta">Công việc đã bị hủy</field>
+        </record>
+
+        <!-- Loại văn bản -->
+        <record id="loai_van_ban_cong_van" model="loai_van_ban">
+            <field name="loai_van_ban">Công văn</field>
+            <field name="mo_ta">Công văn hành chính</field>
+        </record>
+
+        <record id="loai_van_ban_quyet_dinh" model="loai_van_ban">
+            <field name="loai_van_ban">Quyết định</field>
+            <field name="mo_ta">Quyết định của lãnh đạo</field>
+        </record>
+
+        <record id="loai_van_ban_chi_thi" model="loai_van_ban">
+            <field name="loai_van_ban">Chỉ thị</field>
+            <field name="mo_ta">Chỉ thị điều hành</field>
+        </record>
+
+        <!-- Độ mật -->
+        <record id="do_mat_tuyet_mat" model="do_mat">
+            <field name="do_mat">Tuyệt mật</field>
+            <field name="mo_ta">Văn bản tuyệt mật</field>
+        </record>
+
+        <record id="do_mat_mat" model="do_mat">
+            <field name="do_mat">Mật</field>
+            <field name="mo_ta">Văn bản mật</field>
+        </record>
+
+        <record id="do_mat_thuong" model="do_mat">
+            <field name="do_mat">Thường</field>
+            <field name="mo_ta">Văn bản thường</field>
+        </record>
+
+        <!-- Năm -->
+        <record id="nam_2024" model="nam">
+            <field name="nam">2024</field>
+            <field name="mo_ta">Năm 2024</field>
+        </record>
+
+        <record id="nam_2025" model="nam">
+            <field name="nam">2025</field>
+            <field name="mo_ta">Năm 2025</field>
+        </record>
+
+        <!-- Hồ sơ -->
+        <record id="ho_so_2024" model="ho_so">
+            <field name="ho_so">Hồ sơ năm 2024</field>
+            <field name="mo_ta">Hồ sơ văn bản năm 2024</field>
+            <field name="thoi_gian_bat_dau">2024-01-01</field>
+            <field name="thoi_gian_ket_thuc">2024-12-31</field>
+        </record>
+
+        <record id="ho_so_2025" model="ho_so">
+            <field name="ho_so">Hồ sơ năm 2025</field>
+            <field name="mo_ta">Hồ sơ văn bản năm 2025</field>
+            <field name="thoi_gian_bat_dau">2025-01-01</field>
+            <field name="thoi_gian_ket_thuc">2025-12-31</field>
+        </record>
+
+        <!-- Văn bản đi -->
+        <record id="van_ban_di_1" model="van_ban_di">
+            <field name="tieu_de">Công văn về việc tổ chức hội nghị</field>
+            <field name="trich_yeu">Thông báo về việc tổ chức hội nghị tổng kết năm 2024</field>
+            <field name="ngay_di">2024-12-01</field>
+            <field name="dia_chi_nhan">Các phòng ban trong công ty</field>
+            <field name="id_loai_van_ban" ref="loai_van_ban_cong_van"/>
+            <field name="id_co_quan_ban_hanh" ref="nhan_su.phong_ban_hanh_chinh"/>
+            <field name="id_nguoi_phat_hanh" ref="nhan_su.nhan_vien_csv_001"/>
+            <field name="id_do_mat" ref="do_mat_thuong"/>
+            <field name="id_nam" ref="nam_2024"/>
+            <field name="ho_so" ref="ho_so_2024"/>
+        </record>
+
+        <record id="van_ban_di_2" model="van_ban_di">
+            <field name="tieu_de">Quyết định về việc bổ nhiệm nhân sự</field>
+            <field name="trich_yeu">Quyết định bổ nhiệm trưởng phòng mới</field>
+            <field name="ngay_di">2024-12-15</field>
+            <field name="dia_chi_nhan">Phòng Nhân sự</field>
+            <field name="id_loai_van_ban" ref="loai_van_ban_quyet_dinh"/>
+            <field name="id_co_quan_ban_hanh" ref="nhan_su.phong_ban_nhan_su"/>
+            <field name="id_nguoi_phat_hanh" ref="nhan_su.nhan_vien_csv_002"/>
+            <field name="id_do_mat" ref="do_mat_mat"/>
+            <field name="id_nam" ref="nam_2024"/>
+            <field name="ho_so" ref="ho_so_2024"/>
+        </record>
+
+        <!-- Văn bản đến -->
+        <record id="van_ban_den_1" model="van_ban_den">
+            <field name="tieu_de">Công văn yêu cầu báo cáo tài chính</field>
+            <field name="trich_yeu">Yêu cầu gửi báo cáo tài chính quý IV/2024</field>
+            <field name="co_quan_ban_hanh">Bộ Tài chính</field>
+            <field name="ngay_den">2024-12-10</field>
+            <field name="id_co_quan_nhan" ref="nhan_su.phong_ban_ke_toan"/>
+            <field name="id_nguoi_nhan" ref="nhan_su.nhan_vien_csv_003"/>
+            <field name="id_loai_van_ban" ref="loai_van_ban_cong_van"/>
+            <field name="id_do_mat" ref="do_mat_thuong"/>
+            <field name="id_nam" ref="nam_2024"/>
+            <field name="ho_so" ref="ho_so_2024"/>
+        </record>
+
+        <record id="van_ban_den_2" model="van_ban_den">
+            <field name="tieu_de">Chỉ thị về việc thực hiện chính sách mới</field>
+            <field name="trich_yeu">Chỉ thị thực hiện chính sách an toàn lao động</field>
+            <field name="co_quan_ban_hanh">Bộ Lao động - Thương binh và Xã hội</field>
+            <field name="ngay_den">2024-12-20</field>
+            <field name="id_co_quan_nhan" ref="nhan_su.phong_ban_nhan_su"/>
+            <field name="id_nguoi_nhan" ref="nhan_su.nhan_vien_csv_004"/>
+            <field name="id_loai_van_ban" ref="loai_van_ban_chi_thi"/>
+            <field name="id_do_mat" ref="do_mat_mat"/>
+            <field name="id_nam" ref="nam_2024"/>
+            <field name="ho_so" ref="ho_so_2024"/>
+        </record>
+
+        <!-- Công việc -->
+        <record id="cong_viec_1" model="cong.viec">
+            <field name="ten_cong_viec">Xử lý báo cáo tài chính quý IV</field>
+            <field name="yeu_cau">Chuẩn bị và gửi báo cáo tài chính quý IV/2024 cho Bộ Tài chính</field>
+            <field name="ngay_tao">2024-12-10</field>
+            <field name="han_xu_ly">2024-12-31</field>
+            <field name="ngay_hoan_thanh">2024-12-28</field>
+            <field name="tinh_trang">da_nhan</field>
+            <field name="chi_dao" ref="nhan_su.nhan_vien_csv_002"/>
+            <field name="chu_tri_giai_quyet" ref="nhan_su.nhan_vien_csv_003"/>
+            <field name="van_ban_den_id" ref="van_ban_den_1"/>
+        </record>
+
+        <record id="cong_viec_2" model="cong.viec">
+            <field name="ten_cong_viec">Triển khai chính sách an toàn lao động</field>
+            <field name="yeu_cau">Thực hiện các biện pháp an toàn lao động theo chỉ thị mới</field>
+            <field name="ngay_tao">2024-12-20</field>
+            <field name="han_xu_ly">2025-01-31</field>
+            <field name="tinh_trang">da_nhan</field>
+            <field name="chi_dao" ref="nhan_su.nhan_vien_csv_001"/>
+            <field name="chu_tri_giai_quyet" ref="nhan_su.nhan_vien_csv_004"/>
+            <field name="van_ban_den_id" ref="van_ban_den_2"/>
+        </record>
+
+        <record id="cong_viec_3" model="cong.viec">
+            <field name="ten_cong_viec">Tổ chức hội nghị tổng kết</field>
+            <field name="yeu_cau">Chuẩn bị và tổ chức hội nghị tổng kết năm 2024</field>
+            <field name="ngay_tao">2024-12-01</field>
+            <field name="han_xu_ly">2024-12-30</field>
+            <field name="tinh_trang">da_nhan</field>
+            <field name="chi_dao" ref="nhan_su.nhan_vien_csv_001"/>
+            <field name="chu_tri_giai_quyet" ref="nhan_su.nhan_vien_csv_005"/>
+            <field name="van_ban_den_id" ref="van_ban_den_1"/>
+        </record>
+    </data>
+</odoo>
+

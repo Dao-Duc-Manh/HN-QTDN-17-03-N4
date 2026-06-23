@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root"
+            name="QLVB"
+            sequence="0" />
+
+        <menuitem name="Quản lý văn bản đi"
+            id="menu_van_ban_di"
+            parent="menu_root"
+            sequence="1"
+            action="action_van_ban_di"
+        />
+        <menuitem name="Quản lý văn bản đến"
+            id="menu_van_ban_den"
+            parent="menu_root"
+            sequence="2"
+            action="action_van_ban_den"
+        />
+        <!-- <menuitem name="Quản lý công việc"
+            id="menu_cong_viec"
+            parent="menu_root"
+            sequence="3"
+            action="action_cong_viec"
+        /> -->
+        <menuitem name="Danh sách công việc"
+            id="menu_cong_viec_dashboard"
+            parent="menu_root"
+            sequence="4"
+            action="action_cong_viec_dashboard"
+        />
+        <menuitem name="Lọc Văn Bản"
+            id="menu_cau_hinh_van_ban"
+            parent="menu_root"
+            sequence="6" />
+        <menuitem name="Trạng thái"
+            id="menu_trang_thai"
+            parent="menu_cau_hinh_van_ban"
+            sequence="1"
+            action="action_trang_thai" />
+
+        <menuitem name="Độ mật"
+            id="menu_do_mat"
+            parent="menu_cau_hinh_van_ban"
+            sequence="2"
+            action="action_do_mat" />
+
+        <menuitem name="Loại văn bản"
+            id="menu_loai_van_ban"
+            parent="menu_cau_hinh_van_ban"
+            sequence="3"
+            action="action_loai_van_ban" />
+        <menuitem name="Năm"
+            id="menu_nam"
+            parent="menu_cau_hinh_van_ban"
+            sequence="4"
+            action="action_nam" />
+        <menuitem name="Hồ Sơ"
+            id="menu_ho_so"
+            parent="menu_cau_hinh_van_ban"
+            sequence="2"
+            action="action_ho_so" />
+
+        <!-- Dashboard Menu -->
+        <menuitem id="menu_van_ban_dashboard_main"
+            name="Dashboard"
+            parent="menu_root"
+            action="action_van_ban_dashboard_main_server"
+            sequence="5"/>
+    </data>
+</odoo>
