@@ -18,12 +18,12 @@
             sequence="2"
             action="action_van_ban_den"
         />
-        <!-- <menuitem name="Quản lý công việc"
+        <menuitem name="Quản lý công việc"
             id="menu_cong_viec"
             parent="menu_root"
             sequence="3"
             action="action_cong_viec"
-        /> -->
+        />
         <menuitem name="Danh sách công việc"
             id="menu_cong_viec_dashboard"
             parent="menu_root"

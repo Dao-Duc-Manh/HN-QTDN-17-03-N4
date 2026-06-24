@@ -1,8 +1,11 @@
 from odoo import models, fields, api
-from datetime import date
+from datetime import date, timedelta
 import logging
 _logger = logging.getLogger(__name__)
+
+
 class CongViec(models.Model):
+
     _name = 'cong.viec'
     _description = 'Bảng chứa thông tin công việc'
     _rec_name = "ten_cong_viec"
@@ -22,7 +25,10 @@ class CongViec(models.Model):
     
     chi_dao = fields.Many2one('nhan_vien', string="Chỉ đạo", required=True)
     chu_tri_giai_quyet = fields.Many2one('nhan_vien', string="Chủ trì giải quyết")
-    van_ban_den_id = fields.Many2one('van_ban_den', string="Văn bản xử lý", required=True)
+    van_ban_den_id = fields.Many2one('van_ban_den', string="Văn bản xử lý")
+
+    khach_hang_id = fields.Many2one('khach_hang', string='Khách hàng liên quan')
+    van_ban_di_id = fields.Many2one('van_ban_di', string='Văn bản đi liên quan')
 
 
     @api.depends('ngay_hoan_thanh', 'han_xu_ly', 'tinh_trang', 'ngay_tao')
@@ -88,3 +94,61 @@ class CongViec(models.Model):
         if any(field in vals for field in ['ngay_hoan_thanh', 'han_xu_ly', 'tinh_trang']):
             self._compute_trang_thai()
         return result
+
+    @api.model
+    def action_nhac_cong_viec_sap_han(self):
+        """Cron job: Gửi thông báo vào kênh Discuss khi công việc còn ≤ 3 ngày đến hạn"""
+        today = date.today()
+        ngay_canh_bao = today + timedelta(days=3)
+
+        # Tìm công việc sắp đến hạn, chưa hoàn thành, chưa hủy
+        cong_viec_sap_han = self.search([
+            ('han_xu_ly', '>=', fields.Date.to_string(today)),
+            ('han_xu_ly', '<=', fields.Date.to_string(ngay_canh_bao)),
+            ('ngay_hoan_thanh', '=', False),
+            ('tinh_trang', '!=', 'huy'),
+            ('trang_thai', '=', self.env['trang_thai'].search([('ten_trang_thai', '=', 'Đang xử lý')], limit=1).id),
+
+        ])
+
+        if not cong_viec_sap_han:
+            _logger.info("Không có công việc nào sắp đến hạn.")
+            return
+
+        # Tìm hoặc tạo kênh "Nhắc việc"
+        Channel = self.env['mail.channel']
+        kenh = Channel.search([('name', '=', 'Nhắc việc')], limit=1)
+        if not kenh:
+            kenh = Channel.create({
+                'name': 'Nhắc việc',
+                'channel_type': 'channel',
+                'description': 'Kênh thông báo tự động – công việc sắp đến hạn',
+            })
+            _logger.info("Đã tạo kênh 'Nhắc việc' mới.")
+
+        # Gửi từng thông báo vào kênh
+        for cv in cong_viec_sap_han:
+            so_ngay_con_lai = (cv.han_xu_ly - today).days
+            ten_chu_tri = cv.chu_tri_giai_quyet.ho_ten if cv.chu_tri_giai_quyet else 'Chưa phân công'
+            ten_chi_dao = cv.chi_dao.ho_ten if cv.chi_dao else 'Không có'
+
+            noi_dung = (
+                "⚠️ NHẮC VIỆC SẮP ĐẾN HẠN\n"
+                "━━━━━━━━━━━━━━━━━━━━━━\n"
+                f"📋 Công việc : {cv.ten_cong_viec}\n"
+                f"👤 Chủ trì   : {ten_chu_tri}\n"
+                f"👔 Chỉ đạo   : {ten_chi_dao}\n"
+                f"📅 Hạn xử lý : {cv.han_xu_ly}\n"
+                f"⏳ Còn lại   : {so_ngay_con_lai} ngày\n"
+                "━━━━━━━━━━━━━━━━━━━━━━"
+            )
+
+            kenh.message_post(
+                body=noi_dung,
+                message_type='comment',
+                subtype_xmlid='mail.mt_comment',
+            )
+            _logger.info(f"Đã gửi nhắc việc: {cv.ten_cong_viec}")
+
+        _logger.info(f"Hoàn tất: Đã gửi {len(cong_viec_sap_han)} thông báo vào kênh 'Nhắc việc'.")
+

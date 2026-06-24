@@ -26,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/van_ban_data.xml',
+        'data/cron.xml',
         'views/van_ban_di.xml',
         'views/trang_thai.xml',
         'views/do_mat.xml',
@@ -38,4 +39,12 @@
         'views/dashboard_main.xml',
         'views/menu.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'quan_ly_van_ban/static/src/css/chatbox.css',
+            'quan_ly_van_ban/static/src/js/chatbox.js',
+        ],
+    },
 }
+

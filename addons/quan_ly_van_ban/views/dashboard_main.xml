@@ -10,7 +10,6 @@
                         <div class="oe_dashboard">
                             <!-- Row 1: Tổng số lượng -->
                             <div class="row">
-                                <!-- Card: Tổng văn bản đến -->
                                 <div class="col-md-4">
                                     <div class="card" style="background-color: #ffcccc; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -20,8 +19,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Card: Tổng văn bản đi -->
                                 <div class="col-md-4">
                                     <div class="card" style="background-color: #cce5ff; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -31,8 +28,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Card: Tổng nhân sự -->
                                 <div class="col-md-4">
                                     <div class="card" style="background-color: #ccffcc; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -46,7 +41,6 @@
 
                             <!-- Row 2: Công việc -->
                             <div class="row">
-                                <!-- Card: Công việc đã hoàn thành -->
                                 <div class="col-md-3">
                                     <div class="card" style="background-color: #ccffcc; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -56,8 +50,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Card: Công việc đang xử lý -->
                                 <div class="col-md-3">
                                     <div class="card" style="background-color: #fff4cc; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -67,8 +59,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Card: Công việc hoàn thành muộn -->
                                 <div class="col-md-3">
                                     <div class="card" style="background-color: #ffcccc; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -78,8 +68,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Card: Công việc đã nhận -->
                                 <div class="col-md-3">
                                     <div class="card" style="background-color: #cce5ff; margin-bottom: 20px;">
                                         <div class="card-body">
@@ -91,11 +79,41 @@
                                 </div>
                             </div>
 
+                            <!-- Row 3: Xem chi tiết -->
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <button name="action_view_cong_viec_chi_tiet" type="object" string="Xem chi tiết" class="btn btn-success"/>
                                 </div>
                             </div>
+
+                            <!-- Row 4: Xuất báo cáo Excel -->
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="card p-3" style="background-color: #f0f7ff;">
+                                        <h5 style="color: #1F4E79;">📊 Xuất báo cáo Excel</h5>
+                                        <p>Thống kê văn bản đi, văn bản đến và công việc theo tháng.</p>
+                                        <div class="d-flex gap-2 flex-wrap">
+                                            <a href="/qlvb/export/excel?loai=all"
+                                               role="button" class="btn btn-success">
+                                                📥 Xuất tháng này (Tất cả)
+                                            </a>
+                                            <a href="/qlvb/export/excel?loai=van_ban_di"
+                                               role="button" class="btn btn-primary">
+                                                📄 Chỉ văn bản đi
+                                            </a>
+                                            <a href="/qlvb/export/excel?loai=van_ban_den"
+                                               role="button" class="btn btn-info">
+                                                📨 Chỉ văn bản đến
+                                            </a>
+                                            <a href="/qlvb/export/excel?loai=cong_viec"
+                                               role="button" class="btn btn-warning">
+                                                ✅ Chỉ công việc
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </sheet>
                 </form>
@@ -112,4 +130,3 @@ action = env['van_ban.dashboard'].action_open_dashboard()
         </record>
     </data>
 </odoo>
-

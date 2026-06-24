@@ -106,17 +106,15 @@
 
     <!-- Dashboard Action -->
     <record id="action_cong_viec_dashboard" model="ir.actions.act_window">
-        <field name="name">Danh sách công việc</field>
+        <field name="name">Thống kê công việc</field>
         <field name="res_model">cong.viec</field>
-        <field name="view_mode">tree,kanban,graph,pivot,calendar,form</field>
+        <field name="view_mode">kanban,graph,pivot,calendar</field>
         <field name="search_view_id" ref="view_cong_viec_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Chưa có công việc nào được tạo
+                Chưa có dữ liệu thống kê
             </p>
-            <p>
-                Tạo công việc mới để quản lý và theo dõi tiến độ của chúng.
-            </p>
+            <p>Dữ liệu sẽ hiển thị sau khi có công việc được tạo.</p>
         </field>
     </record>
     </data>

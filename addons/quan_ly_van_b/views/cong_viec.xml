@@ -17,7 +17,7 @@
                                 <field name="id" />
                                 <field name="ten_cong_viec" />
                                 <field name="yeu_cau" />
-                                                            <field name="van_ban_den_id" />
+                                <field name="van_ban_den_id" />
                                 <field name="khach_hang_id" />
                                 <field name="van_ban_di_id" />
 
@@ -43,16 +43,15 @@
 
                             </group>
                         </div> -->
-                            <div class="card p-3 shadow-sm mb-3">
+                        <div class="card p-3 shadow-sm mb-3">
                             <group col="4">
-                           <field name="trang_thai" />
-                            <field name="ngay_hoan_thanh" />
-                            <field name="tinh_trang" />
+                                <field name="trang_thai" />
+                                <field name="ngay_hoan_thanh" />
+                                <field name="tinh_trang" />
 
                             </group>
                         </div>
                         <!-- <group col="4" string="Thông tin chung">
-                            
 
                         </group> -->
                     </sheet>
@@ -74,6 +73,8 @@
                     <field name="chi_dao" />
                     <!-- <field name="chu_tri_giai_quyet" /> -->
                     <field name="van_ban_den_id" />
+                    <field name="khach_hang_id" />
+                    <field name="van_ban_di_id" />
                     <!-- <field name="ngay_hoan_thanh" /> -->
                     <!-- <field name="tinh_trang" /> -->
                     <field name="trang_thai" />
@@ -94,16 +95,11 @@
             </field>
         </record>
         <record id="action_cong_viec" model="ir.actions.act_window">
-            <field name="name">Quản lý công việc</field>
+            <field name="name">Công việc</field>
             <field name="res_model">cong.viec</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="cong_viec_search" />
-            <field name="help" type="html">
-<p class="o_view_nocontent_smiling_face">
-                    Chưa có công việc nào
-                </p>
-                <p>Tạo công việc mới hoặc ban hành văn bản để tự động tạo công việc.</p>
-            </field>
         </record>
     </data>
 </odoo>
+
