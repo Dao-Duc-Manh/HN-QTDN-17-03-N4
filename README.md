@@ -118,91 +118,61 @@ Hình 6. Giao diện quản lý hợp đồng và trạng thái hợp đồng
 
 Hình 7. Dashboard thống kê khách hàng và hợp đồng
 
-## 💻 Cài Đặt
+## Cài đặt & chạy dự án
 
-### Yêu Cầu Hệ Thống
-
-- **OS:** Ubuntu 22.04 hoặc tương đương
-- **Python:** 3.10+
-- **PostgreSQL:** 13+
-- **Odoo:** 15.0
-
-### 1. Clone Project
-
+### 1) Tải project (clone)
 ```bash
-git clone https://github.com/trungduc4804/TTDN_16-06_N8.git
-cd odoo-fitdnu
-git checkout cntt15_04
+git clone https://github.com/Dao-Duc-Manh/HN-QTDN-17-03-N4.git
 ```
 
-### 2. Cài Đặt Dependencies
-
+### 2) Cài đặt thư viện / phụ thuộc
 ```bash
 sudo apt-get update
 sudo apt-get install -y \
-    libxml2-dev \
-    libxslt-dev \
-    libldap2-dev \
-    libsasl2-dev \
-    libssl-dev \
-    python3.10-distutils \
-    python3.10-dev \
-    build-essential \
-    libssl-dev \
-    libffi-dev \
-    zlib1g-dev \
-    python3.10-venv \
-    libpq-dev \
-    docker-compose
+  libxml2-dev libxslt-dev libldap2-dev libsasl2-dev \
+  libssl-dev python3.10-distutils python3.10-dev build-essential \
+  libffi-dev zlib1g-dev python3.10-venv libpq-dev
 ```
 
-### 3. Khởi Tạo Môi Trường Ảo
-
+### 3) Tạo môi trường ảo
 ```bash
 python3.10 -m venv ./venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### 4. Setup Database
-
+### 4) Khởi tạo database
 ```bash
 sudo docker-compose up -d
 ```
 
-### 5. Cấu Hình Odoo
+### 5) Cấu hình Odoo
+Tạo file `odoo.conf` (có thể kế thừa từ `odoo.conf.template`).
 
-Tạo file `odoo.conf`:
-
+Ví dụ (tham khảo):
 ```ini
 [options]
-addons_path = addons
+addons_path = /home/manh/TTDN_16-06_N8/addons
 db_host = localhost
-db_password = odoo
-db_user = odoo
 db_port = 5434
-xmlrpc_port = 8069
+db_user = odoo
+db_password = odoo
+http_port = 8069
 ```
 
-### 6. Chạy Hệ Thống
-
+### 6) Cài đặt module và chạy Odoo
 ```bash
-# Kích hoạt môi trường ảo
-source venv/bin/activate
-
-# Khởi động database
-sudo docker-compose up -d
-
-# Chạy Odoo và cài đặt modules
 python3 odoo-bin.py -c odoo.conf -u all
-python3 odoo-bin.py -c odoo.conf -u quan_ly_van_ban,quan_ly_khach_hang,nhan_su --dev=all
 ```
 
-### 7. Truy Cập Hệ Thống
-
-Mở trình duyệt và truy cập: **http://localhost:8069**
+Truy cập:
+- http://localhost:8069/
 
 ---
+
+## License
+© 2024 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
+
 
 ## ⚙️ Cấu Hình
 
